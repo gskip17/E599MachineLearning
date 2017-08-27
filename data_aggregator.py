@@ -5,12 +5,16 @@
 import service_helpers as SH
 from pprint import pprint
 
+
+# Declare Constants
+CHANNELUSERNAME = 'TEDtalksDirector'
+
 # creates a new instance of the service for the API
 service = SH.getService()
 
 # get the TEDTalk channel object using the username that owns it as search criteria
 ted = SH.channels_by_username(service, part='snippet, contentDetails,statistics',
-  forUsername='TEDtalksDirector')
+  forUsername=CHANNELUSERNAME)
 
 # to get all the uploads we need the playlist ID of their aggregate 'upload' playlist
 ted_playlist = ted['items'][0]['contentDetails']['relatedPlaylists']['uploads']
